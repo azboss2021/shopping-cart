@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Home';
 import About from './pages/About';
 import Cart from './pages/Cart';
+import Contact from './pages/Contact';
 import Products from './pages/Products';
 
 export default function RouteSwitch() {
@@ -13,6 +14,7 @@ export default function RouteSwitch() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/products" element={<Products />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,8 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto+Mono&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto Mono;
+}
+
+.logo {
+  font-family: Montserrat;
+  font-size: 28px;
+}
+
+.cart {
+  font-size: 28px;
+}
+
 .navbar {
   display: flex;
+  justify-content: space-between;
+  width: 1000px;
+  margin: auto;
 }
 
 .links {
   display: flex;
   gap: 2rem;
+  list-style: none;
+  margin-left: 0;
+  padding: 1rem;
+  text-transform: lowercase;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  min-width: 100px;
+}
+
+.route_link {
+  text-decoration: none;
+  color: black;
 }
