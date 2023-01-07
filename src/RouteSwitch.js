@@ -1,20 +1,27 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import About from './pages/About';
-import Cart from './pages/Cart';
-import Contact from './pages/Contact';
-import Products from './pages/Products';
+import React, { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
 
 export default function RouteSwitch() {
+  const [products, setProducts] = useState([]);
+  const [productsLoaded, setProductsLoaded] = useState(false);
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              products={products}
+              setProducts={setProducts}
+              productsLoaded={productsLoaded}
+              setProductsLoaded={setProductsLoaded}
+            />
+          }
+        />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );

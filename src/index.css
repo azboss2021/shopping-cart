@@ -1,14 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto+Mono&display=swap");
+
+* {
+  box-sizing: border-box;
+}
 
 body {
-  margin: 0;
-  padding: 0;
+  margin: none;
+  padding: none;
+  font-family: Roboto Mono;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
   font-family: Roboto Mono;
 }
 
 .logo {
   font-family: Montserrat;
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .cart {
@@ -18,27 +29,65 @@ body {
 .navbar {
   display: flex;
   justify-content: space-between;
-  width: 1000px;
-  margin: auto;
-}
-
-.links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  margin-left: 0;
-  padding: 1rem;
-  text-transform: lowercase;
-}
-
-button {
-  border: none;
-  background: none;
-  cursor: pointer;
-  min-width: 100px;
+  padding: 1.25rem 5rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
 }
 
 .route_link {
   text-decoration: none;
   color: black;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product_name {
+  font-family: Montserrat;
+  text-transform: uppercase;
+}
+
+.product_image {
+  max-width: 75%;
+}
+
+#products {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  row-gap: 3rem;
+  max-width: 80%;
+  margin: auto;
+  margin-top: 7rem;
+}
+
+.quantity {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.quantity_input {
+  text-align: center;
+  max-width: 80px;
+  font-size: 16px;
+}
+
+.change_quantity {
+  /* border: 1px solid black; */
+  min-width: 50px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
