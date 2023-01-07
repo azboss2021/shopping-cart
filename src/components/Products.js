@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import ProductCard from "./ProductCard";
-import axios from "axios";
-import Loading from "./Loading";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import Loading from './Loading';
+import ProductsContainer from './ProductsContainer';
 
 export default function Products({
   productsLoaded,
@@ -9,13 +9,14 @@ export default function Products({
   products,
   setProducts,
 }) {
-  // Max pokemon index for this API is 905
-  const highestIndex = 400;
+  /* ----- Max pokemon index for this API is 905 ----- */
+  const HIGHEST_INDEX = 905;
+  const NUM_POKEMON = 12;
 
   useEffect(() => {
     if (productsLoaded) return;
     (async () => {
-      setProducts(await getPokemonsByIds(15));
+      setProducts(await getPokemonsByIds(NUM_POKEMON));
       setProductsLoaded(true);
     })();
   }, []);
@@ -24,9 +25,9 @@ export default function Products({
     const tempProducts = [];
     const seenIndices = [];
     for (let i = 0; i < num; i++) {
-      let randIndex = Math.floor(Math.random() * highestIndex) + 1;
+      let randIndex = Math.floor(Math.random() * HIGHEST_INDEX) + 1;
       while (seenIndices.includes(randIndex)) {
-        randIndex = Math.floor(Math.random() * highestIndex) + 1;
+        randIndex = Math.floor(Math.random() * HIGHEST_INDEX) + 1;
       }
       seenIndices.push(randIndex);
       const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${randIndex}.png`;
@@ -42,14 +43,8 @@ export default function Products({
   };
 
   return (
-    <div id="products">
-      {productsLoaded ? (
-        products.map((product) => {
-          return <ProductCard product={product} key={product.id} />;
-        })
-      ) : (
-        <Loading />
-      )}
-    </div>
+    <>
+      {productsLoaded ? <ProductsContainer products={products} /> : <Loading />}
+    </>
   );
 }
