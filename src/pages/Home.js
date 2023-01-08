@@ -1,21 +1,30 @@
-import React, { useState } from "react";
-import Navbar from "../components/Navbar";
-import Products from "../components/Products";
+import React, { useState } from 'react';
+import Content from '../components/Content';
+import Navbar from '../components/Navbar';
+import Products from '../components/Products';
 
 export default function Home({
   productsLoaded,
   setProductsLoaded,
   products,
   setProducts,
+  cart,
+  setCart,
+  cartQuantity,
+  setCartQuantity,
 }) {
   return (
     <div>
-      <Navbar />
+      <Navbar cartQuantity={cartQuantity} />
+      <Content />
       <Products
         products={products}
         setProducts={setProducts}
         productsLoaded={productsLoaded}
         setProductsLoaded={setProductsLoaded}
+        cart={cart}
+        setCart={setCart}
+        setCartQuantity={setCartQuantity}
       />
     </div>
   );

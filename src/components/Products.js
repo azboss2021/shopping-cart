@@ -8,6 +8,9 @@ export default function Products({
   setProductsLoaded,
   products,
   setProducts,
+  cart,
+  setCart,
+  setCartQuantity,
 }) {
   /* ----- Max pokemon index for this API is 905 ----- */
   const HIGHEST_INDEX = 905;
@@ -36,7 +39,7 @@ export default function Products({
         `https://pokeapi.co/api/v2/pokemon/${randIndex}`
       );
       const name = response.data.name;
-      const price = Math.floor((Math.random() * 10000) / 100) * 100;
+      const price = Math.floor((Math.random() * 10000) / 100) * 100 + 100;
       tempProducts.push({ img, id, name, price });
     }
     return tempProducts;
@@ -44,7 +47,16 @@ export default function Products({
 
   return (
     <>
-      {productsLoaded ? <ProductsContainer products={products} /> : <Loading />}
+      {productsLoaded ? (
+        <ProductsContainer
+          products={products}
+          cart={cart}
+          setCart={setCart}
+          setCartQuantity={setCartQuantity}
+        />
+      ) : (
+        <Loading />
+      )}
     </>
   );
 }

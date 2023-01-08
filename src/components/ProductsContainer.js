@@ -1,11 +1,24 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 
-export default function ProductsContainer({ products }) {
+export default function ProductsContainer({
+  products,
+  cart,
+  setCart,
+  setCartQuantity,
+}) {
   return (
     <div className="products">
       {products.map((product) => {
-        return <ProductCard product={product} key={product.id} />;
+        return (
+          <ProductCard
+            product={product}
+            cart={cart}
+            setCart={setCart}
+            setCartQuantity={setCartQuantity}
+            key={product.id}
+          />
+        );
       })}
     </div>
   );
