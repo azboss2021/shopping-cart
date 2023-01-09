@@ -6,7 +6,7 @@ export default function ProductCard({
   setCart,
   setCartQuantity,
 }) {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const decrementQuantity = () => {
     setQuantity((current) => current - 1);
@@ -37,13 +37,7 @@ export default function ProductCard({
         <button className="change_quantity" onClick={decrementQuantity}>
           -
         </button>
-        <input
-          className="quantity_input"
-          id={'quantity_' + product.name}
-          type="number"
-          value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-        />
+        <div>{quantity}</div>
         <button className="change_quantity" onClick={incrementQuantity}>
           +
         </button>

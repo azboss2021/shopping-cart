@@ -22,11 +22,11 @@ button {
 
 .logo {
   font-family: Montserrat;
-  font-size: 24px;
+  font-size: 36px;
 }
 
 .cart {
-  font-size: 28px;
+  font-size: 32px;
 }
 
 .navbar {
@@ -42,12 +42,14 @@ button {
 
 .cart_quantity {
   position: relative;
-  top: 36px;
-  left: 15px;
+  top: 44px;
+  left: 30px;
   text-align: center;
   background: #d9534f;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 14px;
+  padding: 0.1rem 0.3rem;
+  font-weight: bold;
 }
 
 .route_link {

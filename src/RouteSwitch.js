@@ -27,7 +27,10 @@ export default function RouteSwitch() {
             />
           }
         />
-        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/cart"
+          element={<Cart cart={cart} cartQuantity={cartQuantity} />}
+        />
       </Routes>
     </BrowserRouter>
   );
