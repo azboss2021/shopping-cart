@@ -11,6 +11,7 @@ export default function Products({
   cart,
   setCart,
   setCartQuantity,
+  setCartCost,
 }) {
   /* ----- Max pokemon index for this API is 905 ----- */
   const HIGHEST_INDEX = 905;
@@ -53,6 +54,7 @@ export default function Products({
           cart={cart}
           setCart={setCart}
           setCartQuantity={setCartQuantity}
+          setCartCost={setCartCost}
         />
       ) : (
         <Loading />

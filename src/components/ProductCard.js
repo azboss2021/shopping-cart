@@ -5,6 +5,7 @@ export default function ProductCard({
   cart,
   setCart,
   setCartQuantity,
+  setCartCost,
 }) {
   const [quantity, setQuantity] = useState(1);
 
@@ -21,11 +22,16 @@ export default function ProductCard({
       window.alert('Invalid quantity!');
       return;
     }
-
-    if (cart.find((element) => element.product.name === product.name)) {
+    const curr = cart.findIndex((item) => item.product.name === product.name);
+    if (curr >= 0) {
+      const tempCart = [...cart];
+      tempCart[curr].quantity += quantity;
+      setCart([...tempCart]);
+    } else {
+      setCart((current) => [...current, { product, quantity }]);
     }
-    // setCart((current) => [...current, { product, quantity }]);
     setCartQuantity((current) => current + quantity);
+    setCartCost((current) => current + product.price * quantity);
   };
 
   return (
@@ -37,7 +43,7 @@ export default function ProductCard({
         <button className="change_quantity" onClick={decrementQuantity}>
           -
         </button>
-        <div>{quantity}</div>
+        <p>{quantity}</p>
         <button className="change_quantity" onClick={incrementQuantity}>
           +
         </button>

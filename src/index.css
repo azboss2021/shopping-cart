@@ -41,15 +41,17 @@ button {
 }
 
 .cart_quantity {
-  position: relative;
-  top: 44px;
-  left: 30px;
   text-align: center;
   background: #d9534f;
   border-radius: 10px;
   font-size: 14px;
-  padding: 0.1rem 0.3rem;
+  padding: 0rem 0.5rem;
   font-weight: bold;
+  align-self: flex-end;
+}
+
+.navbar_right {
+  display: flex;
 }
 
 .route_link {
@@ -125,6 +127,36 @@ button {
 .content {
   margin-top: 7rem;
   text-align: center;
+  color: white;
+}
+
+.cart_products {
+  display: flex;
+  flex-direction: column;
+  margin-top: 7rem;
+  gap: 1rem;
+}
+
+.cart_item {
+  display: flex;
+  border: 1px solid white;
+  padding: 0.5rem;
+}
+
+.cart_item > img {
+  max-width: 200px;
+}
+
+.cart_item_name {
+  font-weight: bold;
+}
+
+.remove_from_cart {
+  background: #d9534f;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  font-size: 14px;
+  align-self: stretch;
 }
 
 input[type='number']::-webkit-outer-spin-button,

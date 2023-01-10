@@ -8,6 +8,7 @@ export default function RouteSwitch() {
   const [productsLoaded, setProductsLoaded] = useState(false);
   const [cart, setCart] = useState([]);
   const [cartQuantity, setCartQuantity] = useState(0);
+  const [cartCost, setCartCost] = useState(0);
 
   return (
     <BrowserRouter>
@@ -24,12 +25,15 @@ export default function RouteSwitch() {
               cartQuantity={cartQuantity}
               setCartQuantity={setCartQuantity}
               setCart={setCart}
+              setCartCost={setCartCost}
             />
           }
         />
         <Route
           path="/cart"
-          element={<Cart cart={cart} cartQuantity={cartQuantity} />}
+          element={
+            <Cart cart={cart} cartQuantity={cartQuantity} cartCost={cartCost} />
+          }
         />
       </Routes>
     </BrowserRouter>

@@ -12,6 +12,7 @@ export default function Home({
   setCart,
   cartQuantity,
   setCartQuantity,
+  setCartCost,
 }) {
   return (
     <div>
@@ -25,6 +26,7 @@ export default function Home({
         cart={cart}
         setCart={setCart}
         setCartQuantity={setCartQuantity}
+        setCartCost={setCartCost}
       />
     </div>
   );

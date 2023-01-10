@@ -6,6 +6,7 @@ export default function ProductsContainer({
   cart,
   setCart,
   setCartQuantity,
+  setCartCost,
 }) {
   return (
     <div className="products">
@@ -16,6 +17,7 @@ export default function ProductsContainer({
             cart={cart}
             setCart={setCart}
             setCartQuantity={setCartQuantity}
+            setCartCost={setCartCost}
             key={product.id}
           />
         );

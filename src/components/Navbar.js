@@ -9,14 +9,16 @@ export default function Navbar({ cartQuantity }) {
           Rent-A-Pokemon
         </Link>
       </button>
-      <button className="cart">
-        <Link className="route_link" to="/cart">
-          {cartQuantity ? (
-            <div className="cart_quantity">{cartQuantity}</div>
-          ) : null}
-          <i className="fa-solid fa-cart-shopping"></i>
-        </Link>
-      </button>
+      <div className="navbar_right">
+        <button className="cart">
+          <Link className="route_link" to="/cart">
+            <i className="fa-solid fa-cart-shopping"></i>
+          </Link>
+        </button>
+        {cartQuantity ? (
+          <div className="cart_quantity">{cartQuantity}</div>
+        ) : null}
+      </div>
     </nav>
   );
 }
