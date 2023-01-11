@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
 
-export default function ProductCard({
-  product,
-  cart,
-  setCart,
-  setCartQuantity,
-  setCartCost,
-}) {
+export default function ProductCard({ product, cart, setCart }) {
   const [quantity, setQuantity] = useState(1);
 
   const decrementQuantity = () => {
+    if (quantity <= 1) return;
     setQuantity((current) => current - 1);
   };
 
@@ -30,8 +25,6 @@ export default function ProductCard({
     } else {
       setCart((current) => [...current, { product, quantity }]);
     }
-    setCartQuantity((current) => current + quantity);
-    setCartCost((current) => current + product.price * quantity);
   };
 
   return (
@@ -43,7 +36,7 @@ export default function ProductCard({
         <button className="change_quantity" onClick={decrementQuantity}>
           -
         </button>
-        <p>{quantity}</p>
+        <p className="quantity_display">{quantity}</p>
         <button className="change_quantity" onClick={incrementQuantity}>
           +
         </button>

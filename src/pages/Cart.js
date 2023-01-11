@@ -3,12 +3,12 @@ import CartProducts from '../components/CartProducts';
 import Navbar from '../components/Navbar';
 import TotalCost from '../components/TotalCost';
 
-export default function Cart({ cart, cartQuantity, cartCost }) {
+export default function Cart({ cart, cartCost, setCartCost, setCart }) {
   return (
     <>
-      <Navbar cartQuantity={cartQuantity} />
-      <CartProducts cart={cart} />
-      <TotalCost cartCost={cartCost} />
+      <Navbar cart={cart} />
+      <CartProducts cart={cart} setCart={setCart} />
+      <TotalCost cartCost={cartCost} cart={cart} setCartCost={setCartCost} />
     </>
   );
 }

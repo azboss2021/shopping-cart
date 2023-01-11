@@ -1,13 +1,7 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 
-export default function ProductsContainer({
-  products,
-  cart,
-  setCart,
-  setCartQuantity,
-  setCartCost,
-}) {
+export default function ProductsContainer({ products, cart, setCart }) {
   return (
     <div className="products">
       {products.map((product) => {
@@ -16,8 +10,6 @@ export default function ProductsContainer({
             product={product}
             cart={cart}
             setCart={setCart}
-            setCartQuantity={setCartQuantity}
-            setCartCost={setCartCost}
             key={product.id}
           />
         );

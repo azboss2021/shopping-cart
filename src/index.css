@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto+Mono:wght@400;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -12,6 +12,10 @@ body {
   background: #292b2c;
 }
 
+a {
+  color: white;
+}
+
 button {
   border: none;
   background: none;
@@ -22,22 +26,35 @@ button {
 
 .logo {
   font-family: Montserrat;
-  font-size: 36px;
+  font-size: 30px;
+  width: 300px;
 }
 
 .cart {
   font-size: 32px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 1.25rem 10rem;
   position: fixed;
   top: 0;
   width: 100%;
   background: #292b2c;
-  align-content: center;
+  align-items: center;
+  padding: 1rem 10rem;
+  font-family: Montserrat;
+}
+
+.navbar_links {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 300px;
+  font-size: 20px;
 }
 
 .cart_quantity {
@@ -51,7 +68,7 @@ button {
 }
 
 .navbar_right {
-  display: flex;
+  width: 300px;
 }
 
 .route_link {
@@ -74,9 +91,10 @@ button {
 }
 
 .product_name {
-  font-family: Montserrat;
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 21px;
+  font-weight: 700;
+  color: #5bc0de;
 }
 
 .product_image {
@@ -105,16 +123,22 @@ button {
 .quantity {
   display: flex;
   border: 1px solid white;
-}
-
-.quantity_input {
-  text-align: center;
-  max-width: 80px;
-  font-size: 16px;
+  align-items: center;
 }
 
 .change_quantity {
   min-width: 50px;
+  font-size: 24px;
+}
+
+.change_quantity:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.quantity_display {
+  min-width: 50px;
+  text-align: center;
+  margin: 0;
 }
 
 #loading {
@@ -125,26 +149,39 @@ button {
 }
 
 .content {
-  margin-top: 7rem;
   text-align: center;
-  color: white;
+  color: #f7f7f7;
+  max-width: 60%;
+  margin: auto;
+  margin-top: 7rem;
 }
 
 .cart_products {
   display: flex;
   flex-direction: column;
-  margin-top: 7rem;
   gap: 1rem;
+  float: left;
+  margin-top: 7rem;
+  margin-left: 10rem;
+}
+
+.total_cost_area {
+  padding: 2rem;
+  border: 1px solid white;
+  position: fixed;
+  right: 10rem;
+  top: 7rem;
 }
 
 .cart_item {
   display: flex;
   border: 1px solid white;
-  padding: 0.5rem;
+  padding: 1.5rem;
 }
 
-.cart_item > img {
+.cart_item_image {
   max-width: 200px;
+  margin-right: 1rem;
 }
 
 .cart_item_name {
@@ -155,8 +192,27 @@ button {
   background: #d9534f;
   color: white;
   padding: 0.25rem 0.75rem;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: bold;
   align-self: stretch;
+}
+
+.checkout_button {
+  background: #5cb85c;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 20px;
+}
+
+.main_headline {
+  font-size: 28px;
+  margin-bottom: 0rem;
+}
+
+.sub_headline {
+  font-size: 20px;
+  margin-top: 0.3rem;
+  margin-bottom: 3rem;
 }
 
 input[type='number']::-webkit-outer-spin-button,

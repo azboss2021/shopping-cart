@@ -1,23 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Navbar({ cartQuantity }) {
+export default function Navbar({ cart }) {
+  const [cartQuantity, setCartQuantity] = useState(0);
+
+  useEffect(() => {
+    setCartQuantity(cart.reduce((acc, curr) => acc + curr.quantity, 0));
+  }, [cart]);
+
   return (
     <nav className="navbar">
-      <button className="logo" to="/">
-        <Link className="route_link" to="/">
-          Rent-A-Pokemon
+      <Link className="route_link logo" to="/">
+        Rent-A-Pokemon
+      </Link>
+      <div className="navbar_links">
+        <Link className="route_link" to="/pricing">
+          Pricing
         </Link>
-      </button>
+        <Link className="route_link" to="/about">
+          About
+        </Link>
+        <Link className="route_link" to="/contact">
+          Contact
+        </Link>
+      </div>
       <div className="navbar_right">
-        <button className="cart">
-          <Link className="route_link" to="/cart">
-            <i className="fa-solid fa-cart-shopping"></i>
-          </Link>
-        </button>
-        {cartQuantity ? (
-          <div className="cart_quantity">{cartQuantity}</div>
-        ) : null}
+        <Link className="route_link cart" to="/cart">
+          <i className="fa-solid fa-cart-shopping"></i>
+          {cartQuantity ? (
+            <div className="cart_quantity">{cartQuantity}</div>
+          ) : null}
+        </Link>
       </div>
     </nav>
   );
