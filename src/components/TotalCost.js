@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function TotalCost({ cartCost, cart, setCartCost }) {
   useEffect(() => {
@@ -15,7 +16,9 @@ export default function TotalCost({ cartCost, cart, setCartCost }) {
         Your total for this order is:{' '}
         <span style={{ fontWeight: 'bold' }}>${cartCost}</span>
       </p>
-      <button className="checkout_button">Checkout</button>
+      <Link to="/checkout">
+        <button className="checkout_button">Checkout</button>
+      </Link>
     </aside>
   );
 }
