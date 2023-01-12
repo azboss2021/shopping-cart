@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Pricing from './pages/Pricing';
@@ -14,7 +14,7 @@ export default function RouteSwitch() {
   const [cartCost, setCartCost] = useState(0);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route
           path="/"
@@ -46,6 +46,6 @@ export default function RouteSwitch() {
         <Route path="/contact" element={<Contact cart={cart} />} />
         <Route path="/checkout" element={<Checkout cart={cart} />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
